@@ -21,13 +21,20 @@ class othello:
         
         self.turn = BLACK
     
-    def _get_possible_moves(self, row, col, player):
+    def _get_possible_moves(self, player):
         """
         get all possible moves
         
         For AI
         """
-        pass
+        p_moves = []
+        for i in range(BOARDSIZE):
+            for j in range(BOARDSIZE):
+                if self.board[i][j] == EMPTY and self._is_possible_move(i,j,player):
+                    p_moves.append([i,j])
+        return p_moves
+                    
+                    
         
     def _is_possible_move(self, row, col, player):
         """
